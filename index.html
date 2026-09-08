@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Women of Srikakulam - YouTube</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            text-align: center; 
+            padding-top: 50px; 
+            background-color: #121212; 
+            color: white; 
+        }
+        .btn { 
+            display: inline-block; 
+            padding: 15px 30px; 
+            background-color: #FF0000; 
+            color: white; 
+            text-decoration: none; 
+            border-radius: 8px; 
+            font-weight: bold; 
+            margin-top: 20px; 
+            font-size: 18px; 
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+        }
+        .info { 
+            margin-top: 30px; 
+            color: #aaaaaa; 
+            font-size: 14px; 
+            padding: 0 20px;
+        }
+    </style>
+</head>
+<body>
+    
+    <h2>యూట్యూబ్ యాప్ ఓపెన్ అవుతోంది...</h2>
+    <p>ఒకవేళ యాప్ ఆటోమేటిక్‌గా ఓపెన్ అవ్వకపోతే, కింద ఉన్న బటన్ నొక్కండి:</p>
+    
+    <a href="intent://www.youtube.com/@womenofsrikakulam#Intent;package=com.google.android.youtube;scheme=https;S.browser_fallback_url=https://www.youtube.com/@womenofsrikakulam;end;" class="btn" id="openBtn">Open YouTube App</a>
+
+    <div class="info">
+        <p><b>ముఖ్యమైన గమనిక:</b><br>బటన్ పనిచేయకపోతే, పైన కుడివైపున ఉన్న <b>3 చుక్కల (⋮)</b> మీద నొక్కి <b>"Open in Chrome"</b> లేదా <b>"Open in system browser"</b> ఎంచుకోండి.</p>
+    </div>
+
+    <script>
+        var androidIntent = "intent://www.youtube.com/@womenofsrikakulam#Intent;package=com.google.android.youtube;scheme=https;S.browser_fallback_url=https://www.youtube.com/@womenofsrikakulam;end;";
+        var iosURL = "youtube://www.youtube.com/@womenofsrikakulam";
+        var webURL = "https://www.youtube.com/@womenofsrikakulam";
+
+        var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+        var isAndroid = /android/i.test(userAgent);
+        var isIOS = /iPad|iPhone|iPod/.test(userAgent) && !window.MSStream;
+
+        window.onload = function() {
+            if (isAndroid) {
+                window.location.href = androidIntent;
+            } else if (isIOS) {
+                window.location.href = iosURL;
+                setTimeout(function() {
+                    window.location.href = webURL;
+                }, 2000);
+            } else {
+                window.location.href = webURL;
+            }
+        };
+    </script>
+</body>
+</html>
